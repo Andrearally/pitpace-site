@@ -109,7 +109,20 @@ section{padding:0 20px}
   .grid{grid-template-columns:1fr}
 }
 
-/* Privacy page */
+/* FAQ accordion */
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border:1px solid var(--border);border-radius:12px;background:var(--surface);margin-bottom:10px;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:15px 18px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';color:var(--yellow);font-weight:800;font-size:1.35rem;line-height:1}
+.faq-item[open] summary::after{content:'\2013'}
+.faq-a{padding:0 18px 16px;color:#d2d6db;line-height:1.55}
+.faq-a b{color:var(--text)}
+.faq-a a{color:var(--yellow)}
+.faq-more{text-align:center;margin-top:22px}
+.faq-more a{color:var(--yellow);font-weight:700}
+
+/* Guide / privacy doc pages */
 .doc{max-width:760px;margin:0 auto;padding:40px 20px 64px}
 .doc h1{font-size:2rem;color:var(--yellow);margin-bottom:6px}
 .doc h2{font-size:1.2rem;margin:26px 0 8px}

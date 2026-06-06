@@ -94,6 +94,12 @@
       <p data-i18n-html="strip">🔒 <b>Private by design.</b> PitPace works fully offline on your phone — no account, no cloud, no tracking. Your location is used only on-device for timing.</p>
     </section>
 
+    <section class="section faq-section">
+      <h2 data-i18n="home.faqTitle">Frequently asked questions</h2>
+      <div id="home-faq" class="faq-list"></div>
+      <p class="faq-more"><a href="faq.html" data-i18n="home.faqAll">See all FAQ →</a> &nbsp;·&nbsp; <a href="guide.html" data-i18n="home.guideCta">Read the full guide →</a></p>
+    </section>
+
     <section class="section cta-final">
       <svg class="cta-mark"><use href="#logo"/></svg>
       <h2 data-i18n="cta2.h">Get PitPace</h2>
@@ -108,6 +114,8 @@
       <svg class="brand-mark"><use href="#logo"/></svg><span class="brand-name">PitPace</span>
     </div>
     <nav class="foot-links">
+      <a href="guide.html" data-i18n="nav.guide">Guide</a>
+      <a href="faq.html" data-i18n="nav.faq">FAQ</a>
       <a href="privacy.html" data-i18n="foot.privacy">Privacy</a>
       <a href="mailto:am@andreamaselli.com" data-i18n="foot.contact">Contact</a>
     </nav>
@@ -115,6 +123,8 @@
   </footer>
 
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  <script src="content.js"></script>
+  <script>window.onLangChange = (lang) => renderFaq(document.getElementById('home-faq'), lang, 6);</script>
   <script src="i18n.js"></script>
 </body>
 </html>

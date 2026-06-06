@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-title-key="guide.metaTitle">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PitPace — User guide</title>
+  <meta name="description" content="How to use PitPace: set up your pit-lane gates, modes, the in-stop display, tools and tips.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 240 260">
+        <rect x="105" y="6" width="30" height="22" rx="7" fill="#f5c518"/>
+        <rect x="114" y="0" width="12" height="14" rx="4" fill="#f5c518"/>
+        <circle cx="120" cy="150" r="92" fill="none" stroke="#f5c518" stroke-width="20"/>
+        <rect x="114" y="68" width="12" height="26" rx="4" fill="#f5c518"/>
+        <line x1="120" y1="150" x2="180" y2="94" stroke="#f5c518" stroke-width="16" stroke-linecap="round"/>
+        <circle cx="120" cy="150" r="13" fill="#00e676"/>
+      </svg>
+      <span class="brand-name">PitPace</span>
+    </a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="it">IT</button>
+    </div>
+  </header>
+
+  <div class="doc">
+    <p class="back"><a href="index.html" data-i18n="home.back">← Home</a></p>
+    <h1 data-i18n="guide.h">User guide</h1>
+    <div id="guide"></div>
+    <p class="back" style="margin-top:30px"><a href="faq.html" data-i18n="nav.faq">FAQ</a> · <a href="index.html" data-i18n="home.back">← Home</a></p>
+  </div>
+
+  <script src="content.js"></script>
+  <script>window.onLangChange = (lang) => renderGuide(document.getElementById('guide'), lang);</script>
+  <script src="i18n.js"></script>
+</body>
+</html>

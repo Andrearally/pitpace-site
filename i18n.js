@@ -37,6 +37,11 @@ const I18N = {
     'foot.privacy': 'Privacy',
     'foot.contact': 'Contact',
     'foot.copy': 'Acme Speedworks Srl · PitPace is a driver/engineer aid, not a certified timing device.',
+    'nav.guide': 'Guide', 'nav.faq': 'FAQ', 'home.back': '← Home',
+    'home.faqTitle': 'Frequently asked questions', 'home.faqAll': 'See all FAQ →',
+    'home.guideCta': 'Read the full guide →',
+    'guide.metaTitle': 'PitPace — User guide', 'guide.h': 'User guide',
+    'faq.metaTitle': 'PitPace — FAQ', 'faq.h': 'Frequently asked questions',
     // Privacy page
     'pv.title': 'Privacy Policy',
     'pv.sub': 'Last updated: 2026-06-06 · App: PitPace (Android) · Publisher: Acme Speedworks Srl · Contact: <a href="mailto:am@andreamaselli.com">am@andreamaselli.com</a>',
@@ -100,6 +105,11 @@ const I18N = {
     'foot.privacy': 'Privacy',
     'foot.contact': 'Contatti',
     'foot.copy': 'Acme Speedworks Srl · PitPace è un ausilio per pilota/ingegnere, non uno strumento di cronometraggio certificato.',
+    'nav.guide': 'Guida', 'nav.faq': 'FAQ', 'home.back': '← Home',
+    'home.faqTitle': 'Domande frequenti', 'home.faqAll': 'Tutte le FAQ →',
+    'home.guideCta': 'Leggi la guida completa →',
+    'guide.metaTitle': "PitPace — Guida all'uso", 'guide.h': "Guida all'uso",
+    'faq.metaTitle': 'PitPace — Domande frequenti (FAQ)', 'faq.h': 'Domande frequenti',
     // Privacy page
     'pv.title': 'Informativa sulla privacy',
     'pv.sub': 'Ultimo aggiornamento: 2026-06-06 · App: PitPace (Android) · Titolare: Acme Speedworks Srl · Contatto: <a href="mailto:am@andreamaselli.com">am@andreamaselli.com</a>',
@@ -139,12 +149,17 @@ function setLang(lang) {
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const k = el.getAttribute('data-i18n-html'); if (d[k] != null) el.innerHTML = d[k];
   });
-  if (d['meta.title']) document.title = d['meta.title'];
+  // Per-page title/description keys (default = homepage keys).
+  const titleKey = document.documentElement.getAttribute('data-title-key') || 'meta.title';
+  const descKey  = document.documentElement.getAttribute('data-desc-key')  || 'meta.desc';
+  if (d[titleKey]) document.title = d[titleKey];
   const md = document.querySelector('meta[name="description"]');
-  if (md && d['meta.desc']) md.setAttribute('content', d['meta.desc']);
+  if (md && d[descKey]) md.setAttribute('content', d[descKey]);
   document.querySelectorAll('[data-lang]').forEach(b =>
     b.classList.toggle('on', b.getAttribute('data-lang') === lang));
   try { localStorage.setItem('pp_lang', lang); } catch (_) {}
+  // Let a page re-render any JS-built content (guide/FAQ) in the new language.
+  if (typeof window.onLangChange === 'function') window.onLangChange(lang);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
