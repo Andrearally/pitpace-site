@@ -23,6 +23,10 @@ section{padding:0 20px}
 .brand.small .brand-mark{width:22px;height:24px}
 .badge-soon{font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
   color:#000;background:var(--yellow);padding:5px 10px;border-radius:999px}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.lang button{background:transparent;border:none;color:var(--dim);font-family:inherit;font-size:.76rem;font-weight:700;letter-spacing:.5px;padding:6px 11px;cursor:pointer}
+.lang button.on{background:var(--yellow);color:#000}
 
 /* Hero */
 .hero{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;

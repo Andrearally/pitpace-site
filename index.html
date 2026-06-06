@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#0a0a0a">
   <link rel="icon" type="image/png" href="assets/icon.png">
   <link rel="stylesheet" href="style.css">
-  <!-- Open Graph / social -->
   <meta property="og:title" content="PitPace — Nail the line.">
   <meta property="og:description" content="GPS pit-lane timer for motorsport: cross the exit line exactly on the minimum. Eyes-up, glove-friendly, private by design.">
   <meta property="og:type" content="website">
@@ -18,7 +17,6 @@
 </head>
 <body>
 
-  <!-- Reusable stopwatch logo symbol -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="logo" viewBox="0 0 240 260">
       <rect x="105" y="6"  width="30" height="22" rx="7" fill="#f5c518"/>
@@ -35,26 +33,28 @@
       <svg class="brand-mark"><use href="#logo"/></svg>
       <span class="brand-name">PitPace</span>
     </a>
-    <span class="badge-soon">Coming soon</span>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="it">IT</button>
+      </div>
+      <span class="badge-soon" data-i18n="soon">Coming soon</span>
+    </div>
   </header>
 
   <main id="top">
 
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">GPS PIT-LANE TIMER · MOTORSPORT</p>
-        <h1>Nail the line.</h1>
-        <p class="lede">PitPace times your pit stop by GPS and tells you, live, whether to
-          <b>ease</b> or <b>push</b> — so you cross the exit line exactly on the regulation
-          minimum. No time lost. No penalty for leaving early.</p>
+        <p class="eyebrow" data-i18n="eyebrow">GPS PIT-LANE TIMER · MOTORSPORT</p>
+        <h1 data-i18n="h1">Nail the line.</h1>
+        <p class="lede" data-i18n-html="lede">PitPace times your pit stop by GPS and tells you, live, whether to <b>ease</b> or <b>push</b> — so you cross the exit line exactly on the regulation minimum. No time lost. No penalty for leaving early.</p>
         <div class="cta-row">
-          <span class="store-badge" aria-disabled="true">▶ Coming soon on Google&nbsp;Play</span>
-          <a class="btn-ghost" href="mailto:am@andreamaselli.com?subject=PitPace%20beta">Join the beta</a>
+          <span class="store-badge" data-i18n="cta.soon">▶ Coming soon on Google&nbsp;Play</span>
+          <a class="btn-ghost" href="mailto:am@andreamaselli.com?subject=PitPace%20beta" data-i18n="cta.beta">Join the beta</a>
         </div>
       </div>
 
-      <!-- Phone mockup -->
       <div class="phone" aria-hidden="true">
         <div class="phone-notch"></div>
         <div class="phone-screen">
@@ -69,46 +69,36 @@
       </div>
     </section>
 
-    <!-- FEATURES -->
     <section class="section">
-      <h2>Built for the pit lane</h2>
+      <h2 data-i18n="feat.title">Built for the pit lane</h2>
       <div class="grid">
-        <article class="card"><div class="ic">⏱</div><h3>Entry → exit timing</h3>
-          <p>Detects the pit-entry and pit-exit lines by GPS and counts you down to the exact legal moment to cross.</p></article>
-        <article class="card"><div class="ic">🎯</div><h3>Adaptive guidance</h3>
-          <p>EASE / PUSH / ON PACE — live pace coaching so you hit the line bang on the minimum.</p></article>
-        <article class="card"><div class="ic">🔊</div><h3>Volume-button marking</h3>
-          <p>Mark entry, box stop and exit with the phone's volume buttons. Eyes-up, glove-friendly — no touchscreen.</p></article>
-        <article class="card"><div class="ic">⚡</div><h3>Pit speed alarm</h3>
-          <p>Flashing warning, alarm tone and vibration if you break the pit-lane limit. Max speed logged.</p></article>
-        <article class="card"><div class="ic">🛰</div><h3>Background GPS</h3>
-          <p>Detects pit entry even with the screen off, so you never miss a stop.</p></article>
-        <article class="card"><div class="ic">🔒</div><h3>Private by design</h3>
-          <p>Runs entirely on your phone. No account, no cloud, no tracking, no ads.</p></article>
+        <article class="card"><div class="ic">⏱</div><h3 data-i18n="f1.h">Entry → exit timing</h3><p data-i18n="f1.p">Detects the pit-entry and pit-exit lines by GPS and counts you down to the exact legal moment to cross.</p></article>
+        <article class="card"><div class="ic">🎯</div><h3 data-i18n="f2.h">Adaptive guidance</h3><p data-i18n="f2.p">EASE / PUSH / ON PACE — live pace coaching so you hit the line bang on the minimum.</p></article>
+        <article class="card"><div class="ic">🔊</div><h3 data-i18n="f3.h">Volume-button marking</h3><p data-i18n="f3.p">Mark entry, box stop and exit with the phone's volume buttons. Eyes-up, glove-friendly — no touchscreen.</p></article>
+        <article class="card"><div class="ic">⚡</div><h3 data-i18n="f4.h">Pit speed alarm</h3><p data-i18n="f4.p">Flashing warning, alarm tone and vibration if you break the pit-lane limit. Max speed logged.</p></article>
+        <article class="card"><div class="ic">🛰</div><h3 data-i18n="f5.h">Background GPS</h3><p data-i18n="f5.p">Detects pit entry even with the screen off, so you never miss a stop.</p></article>
+        <article class="card"><div class="ic">🔒</div><h3 data-i18n="f6.h">Private by design</h3><p data-i18n="f6.p">Runs entirely on your phone. No account, no cloud, no tracking, no ads.</p></article>
       </div>
     </section>
 
-    <!-- HOW IT WORKS -->
     <section class="section steps">
-      <h2>Three steps to a clean stop</h2>
+      <h2 data-i18n="steps.title">Three steps to a clean stop</h2>
       <ol class="steps-list">
-        <li><span class="num">1</span><div><h3>Set your pit lane</h3><p>Calibrate by driving through once, or drop pins for the entry &amp; exit lines. Save a profile per circuit.</p></div></li>
-        <li><span class="num">2</span><div><h3>Run your stop</h3><p>PitPace times entry → exit and guides your pace to the line as you drive out.</p></div></li>
-        <li><span class="num">3</span><div><h3>Nail the line</h3><p>Cross exactly on the minimum — consistent, penalty-free stops, every time.</p></div></li>
+        <li><span class="num">1</span><div><h3 data-i18n="s1.h">Set your pit lane</h3><p data-i18n="s1.p">Calibrate by driving through once, or drop pins for the entry &amp; exit lines. Save a profile per circuit.</p></div></li>
+        <li><span class="num">2</span><div><h3 data-i18n="s2.h">Run your stop</h3><p data-i18n="s2.p">PitPace times entry → exit and guides your pace to the line as you drive out.</p></div></li>
+        <li><span class="num">3</span><div><h3 data-i18n="s3.h">Nail the line</h3><p data-i18n="s3.p">Cross exactly on the minimum — consistent, penalty-free stops, every time.</p></div></li>
       </ol>
     </section>
 
-    <!-- PRIVACY STRIP -->
     <section class="strip">
-      <p>🔒 <b>Private by design.</b> PitPace works fully offline on your phone — no account, no cloud, no tracking. Your location is used only on-device for timing.</p>
+      <p data-i18n-html="strip">🔒 <b>Private by design.</b> PitPace works fully offline on your phone — no account, no cloud, no tracking. Your location is used only on-device for timing.</p>
     </section>
 
-    <!-- CTA -->
     <section class="section cta-final">
       <svg class="cta-mark"><use href="#logo"/></svg>
-      <h2>Get PitPace</h2>
-      <p>Launching soon on Google Play. Want early access?</p>
-      <a class="btn-primary" href="mailto:am@andreamaselli.com?subject=PitPace%20beta">Join the beta →</a>
+      <h2 data-i18n="cta2.h">Get PitPace</h2>
+      <p data-i18n="cta2.p">Launching soon on Google Play. Want early access?</p>
+      <a class="btn-primary" href="mailto:am@andreamaselli.com?subject=PitPace%20beta" data-i18n="cta2.btn">Join the beta →</a>
     </section>
 
   </main>
@@ -118,12 +108,13 @@
       <svg class="brand-mark"><use href="#logo"/></svg><span class="brand-name">PitPace</span>
     </div>
     <nav class="foot-links">
-      <a href="privacy.html">Privacy</a>
-      <a href="mailto:am@andreamaselli.com">Contact</a>
+      <a href="privacy.html" data-i18n="foot.privacy">Privacy</a>
+      <a href="mailto:am@andreamaselli.com" data-i18n="foot.contact">Contact</a>
     </nav>
-    <p class="copy">© <span id="yr">2026</span> Acme Speedworks Srl · PitPace is a driver/engineer aid, not a certified timing device.</p>
+    <p class="copy">© <span id="yr">2026</span> <span data-i18n="foot.copy">Acme Speedworks Srl · PitPace is a driver/engineer aid, not a certified timing device.</span></p>
   </footer>
 
   <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+  <script src="i18n.js"></script>
 </body>
 </html>
