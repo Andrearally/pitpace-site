@@ -36,7 +36,7 @@
   </div>
 
   <script src="content.js"></script>
-  <script>window.onLangChange = (lang) => renderFaq(document.getElementById('faq'), lang);</script>
+  <script>window.onLangChange = (lang) => { renderFaq(document.getElementById('faq'), lang); injectFaqSchema(lang); };</script>
   <script src="i18n.js"></script>
 </body>
 </html>

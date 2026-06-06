@@ -171,3 +171,26 @@ function renderFaq(el, lang, limit) {
     `<details class="faq-item"><summary>${item.q}</summary><div class="faq-a">${item.a}</div></details>`
   ).join('');
 }
+
+/** Inject/refresh FAQPage structured data (Schema.org JSON-LD) for the language. */
+function injectFaqSchema(lang, limit) {
+  const data = (FAQ[lang] || FAQ.en).slice(0, limit || undefined);
+  const strip = s => s.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  const json = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: data.map(it => ({
+      '@type': 'Question',
+      name: strip(it.q),
+      acceptedAnswer: { '@type': 'Answer', text: strip(it.a) },
+    })),
+  };
+  let el = document.getElementById('faq-schema');
+  if (!el) {
+    el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = 'faq-schema';
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(json);
+}
