@@ -5,6 +5,7 @@
   --sans:'Inter','Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   --mono:'Courier New','Lucida Console',monospace;
   --maxw:1080px;
+  --ease-out:cubic-bezier(.23,1,.32,1); /* strong ease-out — crisp, no bounce (Emil) */
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -25,7 +26,7 @@ section{padding:0 20px}
   color:#000;background:var(--yellow);padding:5px 10px;border-radius:999px}
 .nav-right{display:flex;align-items:center;gap:12px}
 .lang{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden}
-.lang button{background:transparent;border:none;color:var(--dim);font-family:inherit;font-size:.76rem;font-weight:700;letter-spacing:.5px;padding:6px 11px;cursor:pointer}
+.lang button{background:transparent;border:none;color:var(--dim);font-family:inherit;font-size:.76rem;font-weight:700;letter-spacing:.5px;padding:6px 11px;cursor:pointer;transition:background 150ms ease,color 150ms ease}
 .lang button.on{background:var(--yellow);color:#000}
 
 /* Hero */
@@ -38,8 +39,10 @@ section{padding:0 20px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .store-badge{display:inline-block;background:var(--surface);border:1px solid var(--border);
   color:var(--text);font-weight:700;padding:13px 18px;border-radius:12px}
-.btn-ghost{border:1px solid var(--border);padding:13px 18px;border-radius:12px;color:var(--dim);font-weight:600}
+.btn-ghost{border:1px solid var(--border);padding:13px 18px;border-radius:12px;color:var(--dim);font-weight:600;
+  transition:border-color 160ms ease,color 160ms ease,transform 160ms var(--ease-out)}
 .btn-ghost:hover{border-color:var(--yellow);color:var(--text)}
+.btn-ghost:active{transform:scale(.97)}
 
 /* Phone mockup */
 .phone{justify-self:center;width:260px;max-width:78vw;aspect-ratio:9/19;background:#000;border:3px solid #1f1f1f;
@@ -88,13 +91,16 @@ section{padding:0 20px}
 .cta-final h2{margin-bottom:8px}
 .cta-final p{color:var(--dim);margin-bottom:22px}
 .btn-primary{display:inline-block;background:var(--yellow);color:#000;font-weight:800;
-  padding:15px 30px;border-radius:12px;font-size:1.05rem}
+  padding:15px 30px;border-radius:12px;font-size:1.05rem;
+  transition:filter 160ms ease,transform 160ms var(--ease-out)}
 .btn-primary:hover{filter:brightness(1.07)}
+.btn-primary:active{transform:scale(.97)}
 
 /* Footer */
 .footer{border-top:1px solid var(--border);padding:30px 20px;text-align:center;color:var(--dim)}
 .footer .brand{justify-content:center;margin-bottom:12px}
 .foot-links{display:flex;gap:20px;justify-content:center;margin-bottom:12px}
+.foot-links a{transition:color 150ms ease}
 .foot-links a:hover{color:var(--yellow)}
 .copy{font-size:.82rem;max-width:640px;margin:0 auto}
 
@@ -114,8 +120,16 @@ section{padding:0 20px}
 .faq-item{border:1px solid var(--border);border-radius:12px;background:var(--surface);margin-bottom:10px;overflow:hidden}
 .faq-item summary{cursor:pointer;padding:15px 18px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';color:var(--yellow);font-weight:800;font-size:1.35rem;line-height:1}
-.faq-item[open] summary::after{content:'\2013'}
+.faq-item summary::after{content:'+';color:var(--yellow);font-weight:800;font-size:1.35rem;line-height:1;transition:transform 200ms var(--ease-out)}
+.faq-item[open] summary::after{transform:rotate(135deg)} /* + morphs into × */
+
+/* Soft open where the browser supports it (others keep the instant <details> behaviour) */
+@supports (interpolate-size: allow-keywords){
+  :root{interpolate-size:allow-keywords}
+  .faq-item::details-content{height:0;overflow:hidden;opacity:0;
+    transition:height 220ms var(--ease-out),opacity 200ms ease}
+  .faq-item[open]::details-content{height:auto;opacity:1}
+}
 .faq-a{padding:0 18px 16px;color:#d2d6db;line-height:1.55}
 .faq-a b{color:var(--text)}
 .faq-a a{color:var(--yellow)}
